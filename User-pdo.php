@@ -98,57 +98,50 @@ class Userpdo
     public function getLogin()
     {
 
-        $recupUser = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $recupUser = $this->bdd->prepare("SELECT login FROM utilisateurs WHERE login = ?");
         $recupUser->execute([$_SESSION['login']]);
         $result = $recupUser->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result[0]['login'];
+        return $result;
     }
 
     public function getEmail()
     {
-        $recupUser = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $recupUser = $this->bdd->prepare("SELECT email FROM utilisateurs WHERE login = ?");
         $recupUser->execute([$_SESSION['login']]);
         $result = $recupUser->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result[0]['email'];
+        return $result;
     }
     public function getFirstname()
     {
-        $recupUser = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $recupUser = $this->bdd->prepare("SELECT firstname FROM utilisateurs WHERE login = ?");
         $recupUser->execute([$_SESSION['login']]);
         $result = $recupUser->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result[0]['firstname'];
+        return $result;
     }
     public function getLastname()
     {
-        $recupUser = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $recupUser = $this->bdd->prepare("SELECT lastname FROM utilisateurs WHERE login = ?");
         $recupUser->execute([$_SESSION['login']]);
         $result = $recupUser->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result[0]['lastname'];
+        return $result;
     }
 }
 $newUser = new Userpdo();
 
 // $newUser->register("zazaz", "sqsqs", $test, $test, $test);
-$newUser->connect("Update", "Update");
-
-if ($newUser->isConnected()) {
-    echo 'Bienvenue';
-} else {
-    echo 'ne sais pas';
-}
-// var_dump($newUser->getLastname());
-
-// var_dump($newUser->connect("Update", "Update"));
-// $newUser->update('Update', "Update", $test, $test, $test);
-// $newUser->getLogin();
-// $newUser->delete();
-// $newUser->isConnected();
+// $newUser->connect("Update", "Update");
 // $newUser->disconnect();
-// var_dump($_SESSION);
-// var_dump($this->login);
-// var_dump($this->password);
-// var_dump($login);
+// $newUser->delete();
+// $newUser->update('Update', "Update", $test, $test, $test);
+// $newUser->isConnected();
+// $newUser->getAllinfos();
+// $newUser->getLogin();
+// $newUser->getEmail();
+// $newUser->getFirstname();
+// $newUser->getLastname();
+
+
